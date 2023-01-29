@@ -1,6 +1,5 @@
 # 🤖 Anbu-bot: Your Automated DevOps Companion 🤖
 Anbu-bot is a Discord bot designed to keep you up-to-date with all of your DevOps needs. 
-Anbu-bot is a Discord bot designed to keep you up-to-date with all of your DevOps needs. 
 With automated webhooks written in Typescript, JavaScript and NodeJS
 it allows you to track changes in your GitHub, Jenkins, and CI/CD pipeline.
 We're also looking into playing with web sockets more in the future and will be adding support 
