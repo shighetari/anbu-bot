@@ -6,6 +6,11 @@ it allows you to track changes in your GitHub, Jenkins, and CI/CD pipeline.
 We're also looking into playing with web sockets more in the future and will be adding support 
 for sites that have access to an API which emits event listeners or webhook support.
 
+<p align="center">
+  <img src="https://i.imgur.com/HSyjoN0.png" alt="Image of a flying bird" width="400" height="400" style="border-radius: 50%; border: 5px solid #888; box-shadow: 0 0 10px 5px #ccc; background-image: radial-gradient(circle at 25% 25%, #888 10%, #111 95%);">
+</p>
+
+
 ## Features 📊
 
 * Automatically receive notifications when changes are made to your GitHub, Jenkins, or CI/CD pipeline 🔔
