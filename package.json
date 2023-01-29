@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/shighetari/anbu-bot/issues"
   },
-  "homepage": "https://github.com/shighetari/anbu-bot#readme"
+  "homepage": "https://github.com/shighetari/anbu-bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "discord-api-types": "^0.37.30",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
+  }
 }
