@@ -1,21 +1,38 @@
-import { Client, Message } from 'discord.js'; // import the Client and Message objects from the discord.js module
-import dotenv from 'dotenv';
+// Importing the required dependencies
+const { Client, ClientOptions, PresenceData } = require('discord.js');
 
-// const client = new Client(); 
-// create a new Client object, which represents the bot
-const client = new Client({ token: process.env.DISCORD_TOKEN });
+console.log(process.env.DISCORD_TOKEN);
+require('dotenv').config();
+// Defining the options for the client
+const clientOptions = {
+    // This property specifies the intents that the client should subscribe to
+    intents: [
+      'GuildMessages',
+    ],
+  
+    // This property specifies the status and activity of the client when it is online
+    presence: {
+      status: 'online',
+      activity: {
+        name: 'Example Activity',
+        type: 'PLAYING',
+      },
+    },
+  };
+  
+  
+// Initializing the client with the specified options
+const client = new Client(clientOptions);
 
-// this event is triggered when the bot is successfully connected to Discord
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user?.tag}!`); // log the bot's username and discriminator to the console
+// Logging a message to the console when the client is ready
+client.once('ready', () => {
+  console.log('Client is ready!');
 });
 
-// this event is triggered when the bot receives a message
-client.on('message', (message: Message) => {
-  if (message.content === 'ping') { // check if the message's content is 'ping'
-    message.reply('pong'); // send 'pong' as a reply to the message
-  }
+// Logging a message to the console when the client encounters an error
+client.once('error', (error: any) => {
+  console.error(error);
 });
 
-const token = process.env.DISCORD_TOKEN; // get the Discord token from the environment variable
-client.login(token); // use the token to log the bot in to Discord
+// Logging in the client with the Discord token specified as an environment variable
+client.login(process.env.DISCORD_TOKEN);
