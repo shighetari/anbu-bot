@@ -1,7 +1,10 @@
 // Importing the required dependencies
+import { Message } from 'discord.js';
+import { prefix } from './config';
+
 const { Client, ClientOptions, PresenceData } = require('discord.js');
 
-console.log(process.env.DISCORD_TOKEN);
+
 require('dotenv').config();
 // Defining the options for the client
 const clientOptions = {
@@ -36,3 +39,40 @@ client.once('error', (error: any) => {
 
 // Logging in the client with the Discord token specified as an environment variable
 client.login(process.env.DISCORD_TOKEN);
+console.log(process.env.DISCORD_TOKEN);
+
+
+// Message event handler
+client.on('message', (message: Message) => {
+    // Check if the message starts with the prefix
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+  
+    // Split the message into command name and arguments
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const commandName = args.shift()!.toLowerCase();
+  
+    // Check if the command exists
+    if (!client.commands.has(commandName)) return;
+  
+    // Get the command from the collection
+    const command = client.commands.get(commandName);
+  
+    try {
+        // Execute the command
+        command.execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply('there was an error trying to execute that command!');
+    }
+});
+
+
+const fs = require('fs');
+const path = require('path');
+
+const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter((file: string) => file.endsWith('.ts'));
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
