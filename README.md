@@ -57,3 +57,5 @@ We're dedicated to providing excellent support for Anbu-bot. If you have any que
 To get Anbu-bot up and running, you'll need to run the command `tsc --init` to create a `tsconfig.json` file and then run `tsc -w` to start the watcher, so the Typescript will be automatically compiled to JavaScript when a change is made. Then, you'll need to make sure you're passing in the environment variable correctly `DISCORD_TOKEN=""`.  🔧
 
 The token in this repo is exposed on purpose to test the time response for GitHub token-scanning algorithims to detect a security risk, leak or integrity issue. 
+
+Update: It took 20 min
