@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "start-ts": "node index.ts",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +26,7 @@
     "@discordjs/rest": "^1.5.0",
     "discord-api-types": "^0.37.30",
     "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1"
   }
 }
